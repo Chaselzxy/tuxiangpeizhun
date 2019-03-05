@@ -1,0 +1,16 @@
+imaB= imread('Image B.jpg'); 
+imaA= imread('Image A.jpg'); 
+figure; 
+subplot(1,2,1),imshow(imaA),title("image A"); 
+subplot(1,2,2),imshow(imaB),title("image B");
+
+%断点
+%命令行输入cpselect(imaB,imaA);
+%变量已在基础工作区中创建。
+
+tform=cp2tform(movingPoints,fixedPoints,'affine'); 
+Iout=imtransform(imaB,tform); 
+figure 
+H=tform.tdata.T
+subplot(1,2,1),imshow(Iout),title("image B(2)"); 
+subplot(1,2,2),imshow(imaA),title("image A"); 
